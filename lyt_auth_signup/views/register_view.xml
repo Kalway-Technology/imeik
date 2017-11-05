@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  	<data>
+		<template id="account_sign_up_details_id" inherit_id="auth_signup.fields">
+	        <xpath expr="//div[@class='form-group field-confirm_password']" position="after">
+	          	<div class="form-group field-mobile">
+                    <label for="inputEmail3" class="control-label">手机号</label>
+                    <div class="input-group">
+                        <input id="mobile"  name="mobile"  type="phone"   t-att-value="mobile"   placeholder="请输入手机号码"  required="required"  class="form-control"/>
+                        <span class="input-group-btn">
+                                <input class="btn btn-info" type="button" id="getsms"   name="getsms" value="点击获取手机验证码" />
+                        </span>
+                    </div>
+                </div>
+                <div class="form-group field-auth_code">
+                    <label for="codename"  class="control-label">验证码</label>
+                    <input type="text" class="form-control" id="codename"  name="codename"  required="required"  placeholder="请输入验证码"/>
+                </div>
+	        </xpath>
+	   	</template>
+
+
+		<template id="sign_up_send_mms" name="sign up sms" inherit_id="website.assets_frontend">
+            <xpath expr="." position="inside">
+
+                <script type="text/javascript" src="/lyt_auth_signup/static/src/js/lyt_sign_up.js"></script>
+            </xpath>
+        </template>
+
+  	</data>
+ </openerp>

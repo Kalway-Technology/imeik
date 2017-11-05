@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <!--继承的res.partner的form视图-->
+        <record id="res_partner_sms_form" model="ir.ui.view">
+            <field name="name">lty.res.users.sms.form</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@name='access_rights']" position="after">
+                    <page name="sms_history" string="sms_history">
+                        <field name="history_lines"/>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        <!--<record id="res_partner_sms_form_inherit" model="ir.ui.view">-->
+            <!--<field name="name">lty.res.partner.sms.form.inherit</field>-->
+            <!--<field name="model">res.partner</field>-->
+            <!--<field name="inherit_id" ref="base.view_partner_form"/>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<xpath expr="//page[@name='internal_notes']" position="after">-->
+                    <!--<page name="sms_history_line" string="短信验证记录">-->
+                        <!--<field name="history_lines" options="{'reload_on_button':True}">-->
+                            <!--<tree name="sms_record_lists">-->
+                                <!--<field name="send_time"/>-->
+                                <!--<field name="security_code"/>-->
+                                <!--<field name="state"/>-->
+                                <!--<field name="user_name"/>-->
+                                <!--<field name="mobile"/>-->
+                                <!--<field name="set_history_line"/>-->
+                            <!--</tree>-->
+                        <!--</field>-->
+                    <!--</page>-->
+                <!--</xpath>-->
+            <!--</field>-->
+        <!--</record>-->
+
+
+        <!--历史记录模型的tree-->
+        <record id="view_sms_history_tree" model="ir.ui.view">
+            <field name="name">view.sms.history.tree</field>
+            <field name="model">lyt.sms.history</field>
+            <field name="arch" type="xml">
+                <tree name="record_sms_history_tree">
+                    <field name="send_time"/>
+                    <field name="security_code"/>
+                    <field name="state"/>
+                    <field name="user_name"/>
+                    <field name="mobile"/>
+                    <field name="set_history_line"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--历史记录模型的form-->
+        <record id="view_sms_history_form" model="ir.ui.view">
+            <field name="name">view.sms.history.form</field>
+            <field name="model">lyt.sms.history</field>
+            <field name="arch" type="xml">
+                <form name="record_sms_history_form">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="send_time"/>
+                                <field name="security_code"/>
+                                <field name="state"/>
+                            </group>
+                            <group>
+                                <field name="user_name"/>
+                                <field name="mobile"/>
+                                <field name="set_history_line"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!--动作-->
+        <record id="act_sms_history_record" model="ir.actions.act_window">
+            <field name="name">短信验证码历史记录</field>
+            <field name="res_model">lyt.sms.history</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem name="短信历史记录" id="menu_sec_sms_history" parent="base.menu_administration" sequence="30" action="act_sms_history_record"></menuitem>
+    </data>
+</openerp>

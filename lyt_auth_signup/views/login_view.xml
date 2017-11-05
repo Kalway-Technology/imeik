@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  	<data>
+        <!--<template id="account_login_details_id" name="login_interface" inherit_id="web.login">-->
+            <!--<xpath expr="//div[@class='clearfix oe_login_buttons']" position="before">-->
+                <!---->
+
+                <!--<div class="form-group">-->
+                    <!--<label for="codename"  class="control-label">验证码</label>-->
+                         <!--<div class="input-group">-->
+                            <!--<input type="text" class="form-control" id="codename"  name="codename"  required="required"  placeholder="请输入验证码"/>-->
+                            <!--<span class="input-group-btn">-->
+                                <!--<input class="btn btn-info" type="button" id="getcode"   name="getcode" value="点击获取手机验证码" />-->
+                            <!--</span>-->
+                         <!--</div>-->
+                <!--</div>-->
+
+            <!--</xpath>-->
+        <!--</template>-->
+        <template id="web_login_send_mms" name="login seng sms" inherit_id="website.assets_frontend">
+            <xpath expr="." position="inside">
+
+                <script type="text/javascript" src="/lyt_auth_signup/static/src/js/Lobibox.js"></script>
+                <script type="text/javascript" src="/lyt_auth_signup/static/src/js/lyt_login.js"></script>
+            </xpath>
+        </template>
+
+         <template id="sms_alert_css" inherit_id="website.assets_frontend">
+            <xpath expr="." position="inside">
+                <!-- core CSS -->
+                    <link rel="stylesheet" href="/lyt_auth_signup/static/src/css/lobibox.css" />
+
+
+            </xpath>
+
+         </template>
+
+    </data>
+</openerp>

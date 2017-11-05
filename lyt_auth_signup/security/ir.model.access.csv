@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_sms_account,acl_sms_account,model_sms_account,,1,0,0,0
+access_lyt_sms_history,acl_lyt_sms_history,model_lyt_sms_history,,1,0,0,0
